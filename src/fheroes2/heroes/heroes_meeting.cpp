@@ -264,6 +264,7 @@ void Heroes::MeetingDialog( Heroes & otherHero )
     const int iconsH1XOffset = 34;
     const int iconsH2XOffset = 566;
     const int portraitYOffset = 72;
+    const int luckIndicatorXFixup = -1;
 
     // portrait
     dst_pt.x = cur_pt.x + 93;
@@ -285,7 +286,7 @@ void Heroes::MeetingDialog( Heroes & otherHero )
     moraleIndicator1.Redraw();
 
     LuckIndicator luckIndicator1( this );
-    dst_pt.x = cur_pt.x + iconsH1XOffset;
+    dst_pt.x = cur_pt.x + iconsH1XOffset + luckIndicatorXFixup;
     dst_pt.y = cur_pt.y + portraitYOffset + portrait1.height() - luckIndicator1.GetArea().height * 4 / 3;
     luckIndicator1.SetPos( dst_pt );
     luckIndicator1.Redraw();
@@ -297,7 +298,7 @@ void Heroes::MeetingDialog( Heroes & otherHero )
     moraleIndicator2.Redraw();
 
     LuckIndicator luckIndicator2( &otherHero );
-    dst_pt.x = cur_pt.x + iconsH2XOffset;
+    dst_pt.x = cur_pt.x + iconsH2XOffset + luckIndicatorXFixup;
     dst_pt.y = cur_pt.y + portraitYOffset + portrait2.height() - luckIndicator2.GetArea().height * 4 / 3;
     luckIndicator2.SetPos( dst_pt );
     luckIndicator2.Redraw();
