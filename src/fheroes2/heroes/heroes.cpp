@@ -893,8 +893,8 @@ int Heroes::GetMobilityIndexSprite() const
 
 int Heroes::GetManaIndexSprite() const
 {
-    // Add 2 to round values.
-    const int value = ( GetSpellPoints() + 2 ) / 5;
+    // 0 spell points => 0 px, 1 to 4 spell points => 1px, etc.
+    const int value = ( GetSpellPoints() + 3 ) / 4;
     return value >= 25 ? 25 : value;
 }
 
